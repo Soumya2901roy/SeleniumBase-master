@@ -95,6 +95,7 @@ class WordleTests(BaseCase):
 
         self.save_screenshot_to_logs()
         print('Word: "%s"\nAttempts: %s' % (word.upper(), total_attempts))
+        print("Closing your activity")
         if not success:
             self.fail("Unable to solve for the correct word in 6 attempts!")
         self.sleep(3)
