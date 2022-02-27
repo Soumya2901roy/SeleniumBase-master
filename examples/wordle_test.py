@@ -106,6 +106,7 @@ class WordleTests(BaseCase):
         print("Game number is : ", str(gameNumber))
         dictWord = {
             "Wordle" : gameNumber,
+            "Date" : date.today(),
             "Word of the Day": word.upper()
         }
 
