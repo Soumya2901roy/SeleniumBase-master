@@ -112,7 +112,7 @@ class WordleTests(BaseCase):
 
         # print(dictWord)
         json_object = json.dumps(dictWord, indent = 3)
-        with open("wordle.json", "w") as outfile:
+        with open("wordle.txt", "w") as outfile:
             outfile.write(json_object)
 
         print("Closing your activity")
