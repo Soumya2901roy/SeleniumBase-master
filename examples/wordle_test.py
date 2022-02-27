@@ -1,9 +1,11 @@
 import ast
 import random
+from tkinter import W
 import requests
 from seleniumbase import __version__
 from seleniumbase import BaseCase
-
+import json
+from datetime import date
 
 class WordleTests(BaseCase):
 
@@ -95,6 +97,23 @@ class WordleTests(BaseCase):
 
         self.save_screenshot_to_logs()
         print('Word: "%s"\nAttempts: %s' % (word.upper(), total_attempts))
+        today = date.today()
+        print("Today's date:", today)
+        baseDate = date(2022,2,27)
+        delta = (today - baseDate).days
+        gameNumber = 253 + delta
+        # print(type(delta))
+        print("Game number is : ", str(gameNumber))
+        dictWord = {
+            "Wordle" : gameNumber,
+            "Word of the Day": word.upper()
+        }
+
+        # print(dictWord)
+        json_object = json.dumps(dictWord, indent = 2)
+        with open("wordle.json", "w") as outfile:
+            outfile.write(json_object)
+
         print("Closing your activity")
         if not success:
             self.fail("Unable to solve for the correct word in 6 attempts!")
