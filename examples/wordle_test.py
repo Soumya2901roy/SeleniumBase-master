@@ -106,12 +106,12 @@ class WordleTests(BaseCase):
         print("Game number is : ", str(gameNumber))
         dictWord = {
             "Wordle" : gameNumber,
-            "Date" : date.today(),
+            "Date" : str(date.today()),
             "Word of the Day": word.upper()
         }
 
         # print(dictWord)
-        json_object = json.dumps(dictWord, indent = 2)
+        json_object = json.dumps(dictWord, indent = 3)
         with open("wordle.json", "w") as outfile:
             outfile.write(json_object)
 
